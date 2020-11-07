@@ -24,8 +24,9 @@ int nextevent(Display *dsp, Window win, int timeout, XEvent *evt) {
 	gettimeofday(&tv, NULL);
 	end = tv.tv_sec * 1000 + tv.tv_usec / 1000 + timeout;
 
-	/* some event may already be in queue while the x11 socket is inactive;
-	 * this is why the queue is checked before the select() */
+	/* the queue is checked before select() because some events may already
+	 * be in the queue but the x11 socket is inactive; the loop is because
+	 * select() may return even if no event is completely received */
 	while (! XCheckWindowEvent(dsp, win, KeyPressMask, evt)) {
 
 		FD_ZERO(&fds);
