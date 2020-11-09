@@ -1,5 +1,5 @@
-How to set up a timeout in X Window
-===================================
+How to set up a timeout in Xlib
+===============================
 
 The problem
 -----------
