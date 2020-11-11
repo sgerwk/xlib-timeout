@@ -94,3 +94,10 @@ The timeout is recalculated every time because of the loop. Since ``select()``
 may be called multiple times, the timeout cannot be set the same on each. The
 second time, it has be reduced by the elapsed time, or just set to the time
 left to the requested ending time.
+
+Higher-level libraries
+----------------------
+
+Higher-level libraries allow setting up a callback to be run after a given
+time. This is what ``XtAppAddTimeOut()`` does in Xt and ``g_timeout_add()``
+does in gtk, for example.
